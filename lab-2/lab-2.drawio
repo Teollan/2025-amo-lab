@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="XvAI4dBRSDnjk1QVIbqC">
+    <mxGraphModel dx="1554" dy="902" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QxTboVAkZerzmRvJ-hse-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-1" target="QxTboVAkZerzmRvJ-hse-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-1" value="Початок&lt;div&gt;performIterationMethod(init, eps)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-2" target="QxTboVAkZerzmRvJ-hse-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-2" value="&lt;div&gt;n := 0&lt;/div&gt;x0 := 0&lt;div&gt;x1:= init&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-3" target="QxTboVAkZerzmRvJ-hse-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-3" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;x0 := x1&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;x1 := x0 - lambda * f(x0)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;n += 1&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-4" target="QxTboVAkZerzmRvJ-hse-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="440" />
+              <mxPoint x="440" y="240" />
+              <mxPoint x="300" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-4" target="QxTboVAkZerzmRvJ-hse-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-4" value="abs(x1- x0) &amp;lt;= ((1 - q) / q) * eps" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-9" target="QxTboVAkZerzmRvJ-hse-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-9" value="&lt;div&gt;x: = x1&lt;/div&gt;&lt;div&gt;r := abs(x - (&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;x - lambda * f(x)&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;))&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="520" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-12" target="QxTboVAkZerzmRvJ-hse-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-12" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;return { n, x, r }&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="640" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-14" value="Кінець" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-17" target="QxTboVAkZerzmRvJ-hse-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-17" value="Початок&lt;div&gt;performChordsMethod(init, c, eps)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-19" target="QxTboVAkZerzmRvJ-hse-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-19" value="&lt;div&gt;n := 0&lt;/div&gt;x0 := 0&lt;div&gt;x1:= init&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="120" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-21" target="QxTboVAkZerzmRvJ-hse-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-21" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;x0 := x1&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;x1 := (f(x0) * (x0 - c)) / (f(x0) - f(c))&lt;/span&gt;&lt;/div&gt;&lt;div&gt;n += 1&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-24" target="QxTboVAkZerzmRvJ-hse-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="440" />
+              <mxPoint x="840" y="240" />
+              <mxPoint x="700" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-24" target="QxTboVAkZerzmRvJ-hse-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-24" value="abs(f(x1)) &amp;lt;= eps" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="400" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-26" target="QxTboVAkZerzmRvJ-hse-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-26" value="&lt;div&gt;x: = x1&lt;/div&gt;&lt;div&gt;r := abs(x - (&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(f(x0) * (x0 - c)) / (f(x0) - f(c))&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;))&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="520" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QxTboVAkZerzmRvJ-hse-28" target="QxTboVAkZerzmRvJ-hse-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-28" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;return { n, x, r }&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="640" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-29" value="Кінець" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-30" value="Так" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="470" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-31" value="Так" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="650" y="470" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-32" value="Ні" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="414" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QxTboVAkZerzmRvJ-hse-33" value="Ні" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="770" y="414" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

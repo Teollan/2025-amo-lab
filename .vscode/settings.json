@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "*.h": "c"
+  },
+  "C_Cpp.default.compilerPath": "C:/MinGW/bin/gcc.exe",  // adjust if needed
+  "C_Cpp.default.intelliSenseMode": "gcc-x64",
+  "C_Cpp.clang_format_style": "Google", // or LLVM / Microsoft / WebKit
+  "editor.formatOnSave": true
+}

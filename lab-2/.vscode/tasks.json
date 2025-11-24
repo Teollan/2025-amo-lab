@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: Build all sources in src",
+            "command": "D:\\SDKs\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                // include paths for all header folders
+                "-I${workspaceFolder}/src",
+                "-I${workspaceFolder}/src/f",
+                "-I${workspaceFolder}/src/log",
+                "-I${workspaceFolder}/src/iteration",
+                "-I${workspaceFolder}/src/chords",
+
+                // source files
+                "${workspaceFolder}/src/main.c",
+                "${workspaceFolder}/src/f/f.c",
+                "${workspaceFolder}/src/log/log.c",
+                "${workspaceFolder}/src/iteration/iteration.c",
+                "${workspaceFolder}/src/chords/chords.c",
+
+                // output
+                "-o",
+                "${workspaceFolder}/src/main.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/src",
+                "shell": {
+                    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                }
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task builds all C source files in src/ and its subfolders."
+        }
+    ]
+}
