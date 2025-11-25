@@ -19,6 +19,7 @@ LAB2_BIN = lab-2/src/program
 # Lab 3
 LAB3_SRC = lab-3/src/main.c \
            lab-3/src/gauss/gauss.c \
+           lab-3/src/gauss-seidel/gauss-seidel.c \
            lab-3/src/matrix/matrix.c \
            lab-3/src/vector/vector.c
 LAB3_BIN = lab-3/src/program

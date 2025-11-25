@@ -1,6 +1,6 @@
 // gauss-seidel.h
-#ifndef GAUSS_H
-#define GAUSS_H
+#ifndef GAUSS_SEIDEL_H
+#define GAUSS_SEIDEL_H
 
 #include "../matrix/matrix.h"
 #include "../vector/vector.h"
@@ -10,8 +10,8 @@ typedef struct {
   Matrix U;
 } GaussSeidelSplitResult;
 
-Vector solveWithGaussSeidelMethod(Matrix A, Matrix B);
+Vector solveWithGaussSeidel(Matrix A, Vector B, double eps);
 
-GaussSeidelSplitResult performGaussSeidelSplit(Matrix matrix);
+int hasGaussSeidelConverged(Vector X, Vector X_old, double eps);
 
 #endif

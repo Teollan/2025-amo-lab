@@ -16,6 +16,7 @@ void setVectorElement(Vector vector, int index, double value);
 
 Vector multiplyVectorByScalar(Vector vector, double scalar);
 Vector addVectors(Vector a, Vector b);
+Vector subtractVectors(Vector a, Vector b);
 
 char* vectorToString(Vector vector);
 

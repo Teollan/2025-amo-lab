@@ -16,7 +16,10 @@
     "C_Cpp.default.cppStandard": "c++17",
     "[c]": {
       "editor.defaultFormatter": "ms-vscode.cpptools"
-    }
+    },
+    "cSpell.words": [
+      "Seidel"
+    ]
   },
   "extensions": {
     "recommendations": [

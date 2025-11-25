@@ -1,15 +1,19 @@
 // vector.c
 #include "vector.h"
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 Vector createVector(int length, double* data) {
   Vector vector;
   vector.length = length;
-  vector.data = (double*) malloc(length * sizeof(double));
+  vector.data = (double*)malloc(length * sizeof(double));
 
   if (data == NULL) {
+    for (int i = 0; i < length; i++) {
+      vector.data[i] = 0.0;
+    }
+
     return vector;
   }
 
@@ -30,13 +34,9 @@ Vector cloneVector(Vector vector) {
   return newVector;
 }
 
-void destroyVector(Vector vector) {
-  free(vector.data);
-}
+void destroyVector(Vector vector) { free(vector.data); }
 
-double getVectorElement(Vector vector, int index) {
-  return vector.data[index];
-}
+double getVectorElement(Vector vector, int index) { return vector.data[index]; }
 
 void setVectorElement(Vector vector, int index, double value) {
   vector.data[index] = value;
@@ -62,8 +62,18 @@ Vector addVectors(Vector a, Vector b) {
   return result;
 }
 
+Vector subtractVectors(Vector a, Vector b) {
+  Vector result = createVector(a.length, NULL);
+
+  for (int i = 0; i < a.length; i++) {
+    result.data[i] = a.data[i] - b.data[i];
+  }
+
+  return result;
+}
+
 char* vectorToString(Vector vector) {
-  char* buffer = (char*) malloc(256 * sizeof(char));
+  char* buffer = (char*)malloc(256 * sizeof(char));
   int offset = 0;
 
   offset += sprintf(buffer + offset, "[");

@@ -7,78 +7,67 @@
 #include "../matrix/matrix.h"
 #include "../vector/vector.h"
 
-Vector solveWithGaussianElimination(Matrix augmentedMatrix) {
-  Matrix upperTriangularMatrix = performForwardSubstitution(augmentedMatrix);
+Vector solveWithGaussianElimination(Matrix A_B) {
+  Matrix U = performForwardSubstitution(A_B);
 
-  printf("Upper triangular matrix:\n%s\n",
-         matrixToString(upperTriangularMatrix));
+  Vector X = performBackSubstitution(U);
 
-  Vector solution = performBackSubstitution(upperTriangularMatrix);
+  destroyMatrix(U);
 
-  destroyMatrix(upperTriangularMatrix);
-
-  return solution;
+  return X;
 }
 
-Matrix performForwardSubstitution(Matrix matrix) {
-  Matrix clone = cloneMatrix(matrix);
+Matrix performForwardSubstitution(Matrix augmentedMatrix) {
+  Matrix A_B = cloneMatrix(augmentedMatrix);
 
-  for (int targetRowIndex = 0; targetRowIndex < clone.rows; targetRowIndex++) {
-    double targetRowScaleFactor =
-        getMatrixElement(clone, targetRowIndex, targetRowIndex);
+  for (int i = 0; i < A_B.rows; i++) {
+    double a_ii = getMatrixElement(A_B, i, i);
 
-    Vector targetRow = getMatrixRow(clone, targetRowIndex);
-    Vector scaledRow =
-        multiplyVectorByScalar(targetRow, 1.0 / targetRowScaleFactor);
+    Vector row_i = getMatrixRow(A_B, i);
+    Vector scaled_row_i = multiplyVectorByScalar(row_i, 1.0 / a_ii);
 
-    setMatrixRow(clone, targetRowIndex, scaledRow);
+    setMatrixRow(A_B, i, scaled_row_i);
 
-    for (int subsequentRowIndex = targetRowIndex + 1;
-         subsequentRowIndex < clone.rows; subsequentRowIndex++) {
-      double subsequentRowScaleFactor =
-          getMatrixElement(clone, subsequentRowIndex, targetRowIndex);
+    for (int k = i + 1; k < A_B.rows; k++) {
+      double a_ki = getMatrixElement(A_B, k, i);
 
-      Vector subsequentRow = getMatrixRow(clone, subsequentRowIndex);
-      Vector modifiedRow =
-          multiplyVectorByScalar(scaledRow, -subsequentRowScaleFactor);
+      Vector row_k = getMatrixRow(A_B, k);
+      Vector scaled_row_k = multiplyVectorByScalar(scaled_row_i, a_ki);
+      Vector subtracted_row_k = subtractVectors(row_k, scaled_row_k);
 
-      setMatrixRow(clone, subsequentRowIndex,
-                   addVectors(subsequentRow, modifiedRow));
+      setMatrixRow(A_B, k, subtracted_row_k);
 
-      destroyVector(subsequentRow);
-      destroyVector(modifiedRow);
+      destroyVector(subtracted_row_k);
+      destroyVector(row_k);
+      destroyVector(scaled_row_k);
     }
 
-    destroyVector(targetRow);
-    destroyVector(scaledRow);
+    destroyVector(row_i);
+    destroyVector(scaled_row_i);
   }
 
-  return clone;
+  return A_B;
 }
 
 Vector performBackSubstitution(Matrix matrix) {
-  Vector solution = createVector(matrix.rows, NULL);
+  Vector X = createVector(matrix.rows, NULL);
 
-  for (int rowIndex = matrix.rows - 1; rowIndex >= 0; rowIndex--) {
-    double equationResult = getMatrixElement(matrix, rowIndex, matrix.cols - 1);
+  for (int i = matrix.rows - 1; i >= 0; i--) {
+    double b_i = getMatrixElement(matrix, i, matrix.cols - 1);
 
-    printf("Calculating variable for row %d: initial result = %f\n", rowIndex,
-           equationResult);
+    double sum = 0.0;
 
-    for (int colIndex = rowIndex + 1; colIndex < matrix.cols - 1; colIndex++) {
-      double coefficient = getMatrixElement(matrix, rowIndex, colIndex);
-      double knownValue = getVectorElement(solution, colIndex);
+    for (int j = i + 1; j < matrix.cols - 1; j++) {
+      double a_ij = getMatrixElement(matrix, i, j);
+      double x_j = getVectorElement(X, j);
 
-      printf("  Subtracting %f * %f for column %d\n", coefficient, knownValue,
-             colIndex);
-
-      equationResult -= coefficient * knownValue;
+      sum += a_ij * x_j;
     }
 
-    printf("  Final result for variable at row %d: %f\n", rowIndex,
-           equationResult);
-    setVectorElement(solution, rowIndex, equationResult);
+    double x_i = b_i - sum;
+
+    setVectorElement(X, i, x_i);
   }
 
-  return solution;
+  return X;
 }
