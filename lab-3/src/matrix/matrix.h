@@ -2,7 +2,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#include "vector.h"
+#include "../vector/vector.h"
 
 typedef struct {
   int rows;
@@ -20,7 +20,7 @@ void setMatrixElement(Matrix matrix, int rowIndex, int colIndex, double value);
 Vector getMatrixRow(Matrix matrix, int rowIndex);
 void setMatrixRow(Matrix matrix, int rowIndex, Vector rowData);
 
-Matrix getInverseMatrix(Matrix matrix); // Not implemented yet
+Matrix getInverseMatrix(Matrix matrix);  // Not implemented yet
 Matrix multiplyMatrices(Matrix A, Matrix B);
 
 char* matrixToString(Matrix matrix);

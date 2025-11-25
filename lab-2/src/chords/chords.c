@@ -3,7 +3,8 @@
 
 #include <math.h>
 #include <stdio.h>
-#include "f.h"
+
+#include "../f/f.h"
 
 double approximateRootChords(double x, double c) {
   double nominator = f(x) * (x - c);
@@ -19,21 +20,25 @@ int hasConvergedChords(double currentApproximation, double epsilon) {
   return error <= threshold;
 }
 
-ChordsMethodResult performChordsMethod(double initialGuess, double fixedPoint, double epsilon) {
+ChordsMethodResult performChordsMethod(double initialGuess, double fixedPoint,
+                                       double epsilon) {
   int iterationCount = 0;
   double previousApproximation = 0.0;
   double currentApproximation = initialGuess;
 
   do {
     previousApproximation = currentApproximation;
-    currentApproximation = approximateRootChords(previousApproximation, fixedPoint);
+    currentApproximation =
+        approximateRootChords(previousApproximation, fixedPoint);
     iterationCount++;
   } while (!hasConvergedChords(currentApproximation, epsilon));
 
   ChordsMethodResult result;
   result.iterations = iterationCount;
   result.approximation = currentApproximation;
-  result.residual = fabs(currentApproximation - approximateRootChords(currentApproximation, fixedPoint));
+  result.residual =
+      fabs(currentApproximation -
+           approximateRootChords(currentApproximation, fixedPoint));
 
   return result;
 }

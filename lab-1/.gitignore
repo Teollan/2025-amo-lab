@@ -1,0 +1,17 @@
+# Compiled programs
+program
+*.out
+
+# Debug symbols
+*.dSYM/
+
+# Object files
+*.o
+*.a
+
+# Log and output files
+*.log
+*.csv
+
+# macOS
+.DS_Store

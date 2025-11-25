@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-#include "gauss.h"
-#include "matrix.h"
-#include "vector.h"
+#include "gauss/gauss.h"
+#include "matrix/matrix.h"
+#include "vector/vector.h"
 
 int main() {
   // double data[] = {

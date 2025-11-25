@@ -1,15 +1,16 @@
-//matrix.c
+// matrix.c
 #include "matrix.h"
 
 #include <stdlib.h>
 #include <string.h>
-#include "vector.h"
+
+#include "../vector/vector.h"
 
 Matrix createMatrix(int rows, int cols, double* data) {
   Matrix matrix;
   matrix.rows = rows;
   matrix.cols = cols;
-  matrix.data = (Vector*) malloc(rows * sizeof(Vector));
+  matrix.data = (Vector*)malloc(rows * sizeof(Vector));
 
   if (data == NULL) {
     return matrix;
@@ -40,7 +41,6 @@ void destroyMatrix(Matrix matrix) {
   free(matrix.data);
 }
 
-
 double getMatrixElement(Matrix matrix, int rowIndex, int colIndex) {
   Vector row = matrix.data[rowIndex];
 
@@ -54,7 +54,6 @@ void setMatrixElement(Matrix matrix, int rowIndex, int colIndex, double value) {
 
   setVectorElement(row, colIndex, value);
 }
-
 
 Vector getMatrixRow(Matrix matrix, int rowIndex) {
   Vector row = matrix.data[rowIndex];
@@ -71,7 +70,7 @@ void setMatrixRow(Matrix matrix, int rowIndex, Vector rowData) {
 Matrix getInverseMatrix(Matrix matrix) {
   if (matrix.cols != matrix.rows) {
     Matrix emptyMatrix = {0, 0, NULL};
-  
+
     return emptyMatrix;
   }
 
@@ -130,10 +129,11 @@ Matrix getInverseMatrix(Matrix matrix) {
       }
 
       Vector targetRow = getMatrixRow(aug, k);
-      Vector pivotRow  = getMatrixRow(aug, i);
+      Vector pivotRow = getMatrixRow(aug, i);
 
       for (int j = 0; j < targetRow.length; j++) {
-        double newVal = getVectorElement(targetRow, j) - factor * getVectorElement(pivotRow, j);
+        double newVal = getVectorElement(targetRow, j) -
+                        factor * getVectorElement(pivotRow, j);
 
         setVectorElement(targetRow, j, newVal);
       }
@@ -144,7 +144,6 @@ Matrix getInverseMatrix(Matrix matrix) {
       destroyVector(pivotRow);
     }
   }
-  
 
   //
   // Extract inverse from augmented matrix
@@ -166,7 +165,7 @@ Matrix getInverseMatrix(Matrix matrix) {
 Matrix multiplyMatrices(Matrix A, Matrix B) {
   if (A.cols != B.rows) {
     Matrix emptyMatrix = {0, 0, NULL};
-  
+
     return emptyMatrix;
   }
 
@@ -187,10 +186,9 @@ Matrix multiplyMatrices(Matrix A, Matrix B) {
   return result;
 }
 
-
 char* matrixToString(Matrix matrix) {
   int bufferSize = matrix.rows * matrix.cols * 32;
-  char* buffer = (char*) malloc(bufferSize * sizeof(char));
+  char* buffer = (char*)malloc(bufferSize * sizeof(char));
   buffer[0] = '\0';
 
   for (int i = 0; i < matrix.rows; i++) {

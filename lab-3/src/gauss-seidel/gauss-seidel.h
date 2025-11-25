@@ -2,8 +2,8 @@
 #ifndef GAUSS_H
 #define GAUSS_H
 
-#include "matrix.h"
-#include "vector.h"
+#include "../matrix/matrix.h"
+#include "../vector/vector.h"
 
 typedef struct {
   Matrix L;
