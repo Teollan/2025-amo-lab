@@ -7,19 +7,22 @@
 typedef struct {
   int rows;
   int cols;
-  Vector* data;
+  double *data;
 } Matrix;
 
-Matrix createMatrix(int rows, int cols, double* data);
+Matrix createMatrix(int rows, int cols, double *data);
 Matrix cloneMatrix(Matrix matrix);
 void destroyMatrix(Matrix matrix);
 
-double getMatrixElement(Matrix matrix, int rowIndex, int colIndex);
-void setMatrixElement(Matrix matrix, int rowIndex, int colIndex, double value);
+double getMatrixElement(Matrix matrix, int i, int j);
+void setMatrixElement(Matrix matrix, int i, int j, double value);
 
-Vector getMatrixRow(Matrix matrix, int rowIndex);
-void setMatrixRow(Matrix matrix, int rowIndex, Vector rowData);
+Vector getMatrixColumn(Matrix matrix, int j);
+Matrix getMatrixSubmatrix(Matrix matrix, int i_start, int j_start, int rows, int cols);
 
-char* matrixToString(Matrix matrix);
+void performRowScaling(Matrix matrix, int i, double scalar);
+void performRowTransformation(Matrix matrix, int i, int k, double scalar);
+
+char *matrixToString(Matrix matrix);
 
 #endif

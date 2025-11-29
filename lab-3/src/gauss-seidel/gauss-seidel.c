@@ -9,8 +9,8 @@
 #include "../vector/vector.h"
 
 Vector solveWithGaussSeidel(Matrix A, Vector B, double eps) {
-  Vector X = createVector(B.length, NULL);
-  Vector X_old = createVector(B.length, NULL);
+  Vector X = cloneVector(B);
+  Vector X_old = cloneVector(B);
 
   do {
     destroyVector(X_old);
@@ -60,4 +60,23 @@ int hasGaussSeidelConverged(Vector X, Vector X_old, double eps) {
   }
 
   return maxError < eps;
+}
+
+int isMatrixDiagonallyDominant(Matrix A) {
+  for (int i = 0; i < A.rows; i++) {
+    double a_ii = fabs(getMatrixElement(A, i, i));
+    double sum = 0.0;
+
+    for (int j = 0; j < A.cols; j++) {
+      if (i != j) {
+        sum += fabs(getMatrixElement(A, i, j));
+      }
+    }
+
+    if (a_ii < sum) {
+      return 0;
+    }
+  }
+
+  return 1;
 }

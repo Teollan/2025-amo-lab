@@ -7,8 +7,8 @@
 
 Vector solveWithGaussianElimination(Matrix augmentedMatrix);
 
-Matrix performForwardSubstitution(Matrix augmentedMatrix);
+void performForwardElimination(Matrix augmentedMatrix);
 
-Vector performBackSubstitution(Matrix upperTriangularMatrix);
+Vector performBackwardSubstitution(Matrix upperTriangularMatrix);
 
 #endif

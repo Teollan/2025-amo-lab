@@ -14,4 +14,6 @@ Vector solveWithGaussSeidel(Matrix A, Vector B, double eps);
 
 int hasGaussSeidelConverged(Vector X, Vector X_old, double eps);
 
+int isMatrixDiagonallyDominant(Matrix A);
+
 #endif

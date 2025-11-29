@@ -1,15 +1,18 @@
 ---
 BasedOnStyle: Google
-ColumnLimit: 120
+ColumnLimit: 100
 IndentWidth: 2
 TabWidth: 2
 UseTab: Never
 AlignArrayOfStructures: Left
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
-AllowShortFunctionsOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackParameters: false
+AlignAfterOpenBracket: AlwaysBreak
 BreakBeforeBraces: Attach
 PointerAlignment: Right
 SpaceAfterCStyleCast: true

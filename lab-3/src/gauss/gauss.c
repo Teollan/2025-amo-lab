@@ -8,48 +8,26 @@
 #include "../vector/vector.h"
 
 Vector solveWithGaussianElimination(Matrix A_B) {
-  Matrix U = performForwardSubstitution(A_B);
+  performForwardElimination(A_B);
 
-  Vector X = performBackSubstitution(U);
-
-  destroyMatrix(U);
-
-  return X;
+  return performBackwardSubstitution(A_B);
 }
 
-Matrix performForwardSubstitution(Matrix augmentedMatrix) {
-  Matrix A_B = cloneMatrix(augmentedMatrix);
-
+void performForwardElimination(Matrix A_B) {
   for (int i = 0; i < A_B.rows; i++) {
     double a_ii = getMatrixElement(A_B, i, i);
 
-    Vector row_i = getMatrixRow(A_B, i);
-    Vector scaled_row_i = multiplyVectorByScalar(row_i, 1.0 / a_ii);
-
-    setMatrixRow(A_B, i, scaled_row_i);
+    performRowScaling(A_B, i, 1.0 / a_ii);
 
     for (int k = i + 1; k < A_B.rows; k++) {
       double a_ki = getMatrixElement(A_B, k, i);
 
-      Vector row_k = getMatrixRow(A_B, k);
-      Vector scaled_row_k = multiplyVectorByScalar(scaled_row_i, a_ki);
-      Vector subtracted_row_k = subtractVectors(row_k, scaled_row_k);
-
-      setMatrixRow(A_B, k, subtracted_row_k);
-
-      destroyVector(subtracted_row_k);
-      destroyVector(row_k);
-      destroyVector(scaled_row_k);
+      performRowTransformation(A_B, k, i, -1.0 * a_ki);
     }
-
-    destroyVector(row_i);
-    destroyVector(scaled_row_i);
   }
-
-  return A_B;
 }
 
-Vector performBackSubstitution(Matrix matrix) {
+Vector performBackwardSubstitution(Matrix matrix) {
   Vector X = createVector(matrix.rows, NULL);
 
   for (int i = matrix.rows - 1; i >= 0; i--) {

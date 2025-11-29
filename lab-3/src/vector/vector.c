@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Vector createVector(int length, double* data) {
+Vector createVector(int length, double *data) {
   Vector vector;
   vector.length = length;
-  vector.data = (double*)malloc(length * sizeof(double));
+  vector.data = (double *) malloc(length * sizeof(double));
 
   if (data == NULL) {
     for (int i = 0; i < length; i++) {
@@ -34,46 +34,20 @@ Vector cloneVector(Vector vector) {
   return newVector;
 }
 
-void destroyVector(Vector vector) { free(vector.data); }
+void destroyVector(Vector vector) {
+  free(vector.data);
+}
 
-double getVectorElement(Vector vector, int index) { return vector.data[index]; }
+double getVectorElement(Vector vector, int index) {
+  return vector.data[index];
+}
 
 void setVectorElement(Vector vector, int index, double value) {
   vector.data[index] = value;
 }
 
-Vector multiplyVectorByScalar(Vector vector, double scalar) {
-  Vector clone = cloneVector(vector);
-
-  for (int i = 0; i < clone.length; i++) {
-    clone.data[i] *= scalar;
-  }
-
-  return clone;
-}
-
-Vector addVectors(Vector a, Vector b) {
-  Vector result = createVector(a.length, NULL);
-
-  for (int i = 0; i < a.length; i++) {
-    result.data[i] = a.data[i] + b.data[i];
-  }
-
-  return result;
-}
-
-Vector subtractVectors(Vector a, Vector b) {
-  Vector result = createVector(a.length, NULL);
-
-  for (int i = 0; i < a.length; i++) {
-    result.data[i] = a.data[i] - b.data[i];
-  }
-
-  return result;
-}
-
-char* vectorToString(Vector vector) {
-  char* buffer = (char*)malloc(256 * sizeof(char));
+char *vectorToString(Vector vector) {
+  char *buffer = (char *) malloc(256 * sizeof(char));
   int offset = 0;
 
   offset += sprintf(buffer + offset, "[");

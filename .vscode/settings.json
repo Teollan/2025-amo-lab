@@ -4,11 +4,14 @@
   },
   "C_Cpp.default.compilerPath": "/usr/bin/clang",
   "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
-  "C_Cpp.clang_format_style": "Google",
+  "C_Cpp.clang_format_style": "file",
   "editor.formatOnSave": true,
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.default.cppStandard": "c++17",
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
-  }
+  },
+  "cSpell.words": [
+    "seidel"
+  ]
 }
