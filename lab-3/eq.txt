@@ -1,0 +1,27 @@
+\begin{vmatrix}
+14 & 19 & 15 & 4 & \vert & 180 \\
+17 & 33 & 5 & 10 & \vert & 208 \\
+11 & 6 & 28 & 10 & \vert & 230 \\
+6 & 19 & 3 & 13 & \vert & 149
+\end{vmatrix}
+
+\begin{vmatrix}
+14 & 19 & 15 & 4 & \vert & 180 \\
+17 & \textcolor{red}{33} & 5 & 10 & \vert & 208 \\
+11 & 6 & \textcolor{red}{28} & 10 & \vert & 230 \\
+6 & 19 & 3 & 13 & \vert & 149
+\end{vmatrix}
+
+\begin{vmatrix}
+14 & 19 & 15 & 4 & \vert & 180 \\
+17 & \textcolor{red}{33} & 5 & 10 & \vert & 208 \\
+11 & 6 & \textcolor{red}{28} & 10 & \vert & 230 \\
+3 & 7 & 19 & \textcolor{red}{31} & \vert & 277
+\end{vmatrix}
+
+\begin{vmatrix}
+\textcolor{red}{-123} & -107 & 1 & -6 & \vert & -592 \\
+17 & \textcolor{red}{33} & 5 & 10 & \vert & 208 \\
+11 & 6 & \textcolor{red}{28} & 10 & \vert & 230 \\
+3 & 7 & 19 & \textcolor{red}{31} & \vert & 277
+\end{vmatrix}
