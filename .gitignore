@@ -12,6 +12,7 @@ program
 # Log and output files
 *.log
 *.csv
+*.rar
 
 # macOS
 .DS_Store

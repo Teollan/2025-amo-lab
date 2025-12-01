@@ -12,6 +12,7 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "cSpell.words": [
+    "Runge",
     "seidel"
   ]
 }

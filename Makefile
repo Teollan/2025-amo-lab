@@ -24,7 +24,12 @@ LAB3_SRC = lab-3/src/main.c \
            lab-3/src/vector/vector.c
 LAB3_BIN = lab-3/src/program
 
-.PHONY: all lab-1 lab-2 lab-3 run-lab-1 run-lab-2 run-lab-3 clean
+LAB4_SRC = lab-4/src/main.c \
+					 lab-4/src/integral/integral.c \
+					 lab-4/src/log/log.c
+LAB4_BIN = lab-4/src/program
+
+.PHONY: all lab-1 lab-2 lab-3 lab-4 run-lab-1 run-lab-2 run-lab-3 run-lab-4 clean
 
 # Build all labs
 all: lab-1 lab-2 lab-3
@@ -36,6 +41,8 @@ lab-2: $(LAB2_BIN)
 
 lab-3: $(LAB3_BIN)
 
+lab-4: $(LAB4_BIN)
+
 # Build rules
 $(LAB1_BIN): $(LAB1_SRC)
 	$(CC) $(CFLAGS) $(LAB1_SRC) -o $(LAB1_BIN) $(LDFLAGS)
@@ -45,6 +52,9 @@ $(LAB2_BIN): $(LAB2_SRC)
 
 $(LAB3_BIN): $(LAB3_SRC)
 	$(CC) $(CFLAGS) $(LAB3_SRC) -o $(LAB3_BIN) $(LDFLAGS)
+
+$(LAB4_BIN): $(LAB4_SRC)
+	$(CC) $(CFLAGS) $(LAB4_SRC) -o $(LAB4_BIN) $(LDFLAGS)
 
 # Run individual labs
 run-lab-1: lab-1
@@ -59,7 +69,11 @@ run-lab-3: lab-3
 	@echo "Running Lab 3..."
 	@cd lab-3/src && ./program
 
+run-lab-4: lab-4
+	@echo "Running Lab 4..."
+	@cd lab-4/src && ./program
+
 # Clean build artifacts
 clean:
-	rm -f $(LAB1_BIN) $(LAB2_BIN) $(LAB3_BIN)
+	rm -f $(LAB1_BIN) $(LAB2_BIN) $(LAB3_BIN) $(LAB4_BIN)
 	@echo "Build artifacts cleaned."
