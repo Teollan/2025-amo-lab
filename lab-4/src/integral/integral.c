@@ -20,15 +20,13 @@ int calculateTrapezoidalStepsForPrecision(double a, double b, double eps, double
 
 IntegralResult calculateIntegralTrapezoidal(double a, double b, int n, double (*f)(double x)) {
   double h = (b - a) / n;
-  double x_0 = a;
-  double x_1 = a + h;
   double sum = 0.0;
 
   for (int i = 0; i < n; i++) {
-    sum += (f(x_0) + f(x_1)) * h / 2.0;
+    double x_0 = a + (i * h);
+    double x_1 = a + ((i + 1) * h);
 
-    x_0 += h;
-    x_1 += h;
+    sum += (f(x_0) + f(x_1)) * h / 2.0;
   }
 
   IntegralResult result;
@@ -39,25 +37,22 @@ IntegralResult calculateIntegralTrapezoidal(double a, double b, int n, double (*
 }
 
 IntegralResult calculateIntegralTrapezoidalRunge(double a, double b, double eps, double (*f)(double x)) {
-  double r = 2.0;
-  int n = round(1.0 / pow(eps, 1.0 / r));
+  int n = ceil(1.0 / sqrt(eps));
 
   double I_n = calculateIntegralTrapezoidal(a, b, n, f).I;
-  double I_2n = calculateIntegralTrapezoidal(a, b, 2 * n, f).I;
-  double R_n = fabs(I_2n - I_n) / (pow(2.0, r) - 1.0);
+  double I_2n = 0.0;
+  double R_n = 0.0;
 
-  while (R_n > eps) {
-    n *= 2;
-
-    I_n = I_2n;
-
+  do {
     I_2n = calculateIntegralTrapezoidal(a, b, 2 * n, f).I;
+    R_n = fabs(I_n - I_2n) / 3.0;
 
-    R_n = fabs(I_2n - I_n) / (pow(2.0, r) - 1.0);
-  }
+    n *= 2;
+    I_n = I_2n;
+  } while (R_n > eps);
 
   IntegralResult result;
-  result.I = I_2n;
+  result.I = I_n;
   result.h = (b - a) / n;
 
   return result;
